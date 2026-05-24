@@ -1,6 +1,9 @@
 import { router } from 'expo-router';
 // router é responsavel por trocar de tela no app dashboard para clientes
 
+import Card from '@/components/Card';
+// importa o componente reutilizavel card
+
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 // importando componentes da biblioteca react-native
 
@@ -21,35 +24,29 @@ export default function DashboardScreen() {
       <TouchableOpacity
         // fez o card virar um botao clicavel
 
-        style={styles.card}
-
         onPress={() => router.push('/clientes')}
         // quando clicar, navega para a tela clientes
       >
-        <Text style={styles.cardTitle}>Clientes</Text>
 
-        <Text style={styles.cardNumber}>24</Text>
+        <Card
+          titulo="Clientes"
+          valor="24"
+        />
+        {/* componente reutilizavel card */}
+
       </TouchableOpacity>
 
-      <View style={styles.card}>
-        {/* segundo card */}
+      <Card
+        titulo="Membros"
+        valor="18"
+      />
+      {/* componente reutilizavel card */}
 
-        <Text style={styles.cardTitle}>Membros</Text>
-        {/* titulo do card */}
-
-        <Text style={styles.cardNumber}>18</Text>
-        {/* simula quantidade de membros */}
-      </View>
-
-      <View style={styles.card}>
-        {/* terceiro card */}
-
-        <Text style={styles.cardTitle}>Equipamentos</Text>
-        {/* titulo do card */}
-
-        <Text style={styles.cardNumber}>12</Text>
-        {/* simula quantidade de equipamentos cadastrados */}
-      </View>
+      <Card
+        titulo="Equipamentos"
+        valor="12"
+      />
+      {/* componente reutilizavel card */}
 
     </View>
   );
@@ -70,9 +67,9 @@ const styles = StyleSheet.create({
 
     padding: 24,
     // espacamento interno da tela
-    
+
     paddingTop: 70,
-    // espacamento do conteudo superio, desce o conteudo da tela
+    // espacamento do conteudo superior, desce o conteudo da tela
   },
 
   title: {
@@ -88,39 +85,4 @@ const styles = StyleSheet.create({
     // espaco abaixo do titulo
   },
 
-  card: {
-    // estilo dos cards
-
-    backgroundColor: '#fff',
-    // fundo dos cards branco
-
-    padding: 20,
-    // espacamento interno dos cards
-
-    borderRadius: 12,
-    // bordas arredondadas
-
-    marginBottom: 16,
-    // espaco abaixo de cada card
-  },
-
-  cardTitle: {
-    // estilo do titulo dentro do card
-
-    fontSize: 18,
-    // tamanho da fonte
-
-    marginBottom: 8,
-    // espaco abaixo do titulo do card
-  },
-
-  cardNumber: {
-    // estilo do numero do card
-
-    fontSize: 32,
-    // numero grande
-
-    fontWeight: 'bold',
-    // numero em negrito
-  },
 });
